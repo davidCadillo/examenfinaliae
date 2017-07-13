@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Vehiculos</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+</head>
+<body>
+
+
+	<div class="container">
+		<h1>Registro de vehículos</h1>
+		<form action="#" method="post" th:action="@{/registrar}"
+			th:object="${vehiculo}">
+
+			<label>Numero de serie: </label> <input type="text"
+				th:field="*{numeroserie}"> <br> <label>Numero
+				de motor: </label> <input type="text" th:field="*{numeromotor}"> <br>
+			<label>Precio: </label> <input type="text"
+				th:field="*{preciofactura}"><br> <label>Año: </label> <input
+				type="text" th:field="*{anio}"><br> 			
+			<button type="submit" value="Registrar">Registrar</button>
+		</form>
+
+		<table
+			class="table table-striped table-bordered table-hover table-condensed">
+			<thead>
+				<tr class="info">
+					<td>Id</td>
+					<td>Numero de serie</td>
+					<td>Numero de motor</td>
+					<td>Precio factura</td>
+					<td>Año</td>
+					<td>Impuesto</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="vehiculo : ${vehiculos}">
+					<td th:text="${vehiculo.id}"></td>
+					<td th:text="${vehiculo.numeroserie}"></td>
+					<td th:text="${vehiculo.numeromotor}"></td>
+					<td th:text="${vehiculo.preciofactura}"></td>
+					<td th:text="${vehiculo.anio}"></td>
+					<td th:text="${vehiculo.impuesto}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
